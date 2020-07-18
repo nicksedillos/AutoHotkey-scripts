@@ -10,5 +10,5 @@ Return
 
 ; Assign a keyboard shortcut to pin a window always-on-top. (See: https://www.techjunkie.com/always-on-top-windows-10/)
 ^Space::
-WinSet, AlwaysOnTop, A
+WinSet, AlwaysOnTop, Toggle, A
 Return
