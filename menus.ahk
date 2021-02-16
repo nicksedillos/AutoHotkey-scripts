@@ -6,7 +6,8 @@ Menu, IllustratorMenu, Add, Eyedropper tool, EyedropperTool
 Menu, IllustratorMenu, Add, Swap fill/stroke, SwitchColors
 Menu, IllustratorMenu, Add, Selection tool, SelectionTool
 Menu, IllustratorMenu, Add, Direct selection tool, DirectSelectionTool
-Menu, IllustratorMenu, Add, Zoom tool, ZoomTool, +BarBreak
+Menu, IllustratorMenu, Add, Hand tool, HandTool, +BarBreak
+Menu, IllustratorMenu, Add, Zoom tool, ZoomTool
 Menu, IllustratorMenu, Add, Zoom to 100`%, Zoom100
 Menu, IllustratorMenu, Add, Reset view, ResetView
 
@@ -17,7 +18,8 @@ Menu, PhotoshopMenu, Add, Spot healing brush tool, SpotHealingBrushTool
 Menu, PhotoshopMenu, Add, Eyedropper tool, EyedropperTool
 Menu, PhotoshopMenu, Add, Switch FG/BG Colors, SwitchColors
 Menu, PhotoshopMenu, Add, Lasso tool, LassoTool
-Menu, PhotoshopMenu, Add, Zoom tool, ZoomTool, +BarBreak
+Menu, PhotoshopMenu, Add, Hand tool, HandTool, +BarBreak
+Menu, PhotoshopMenu, Add, Zoom tool, ZoomTool
 Menu, PhotoshopMenu, Add, Rotate view tool, RotateViewTool
 Menu, PhotoshopMenu, Add, Zoom to 100`%, Zoom100
 Menu, PhotoshopMenu, Add, Reset view, ResetView
@@ -36,6 +38,10 @@ Return
 
 EraserTool:
 	Send, e
+Return
+
+HandTool:
+	Send, h
 Return
 
 SpotHealingBrushTool:
@@ -77,7 +83,7 @@ ResetView:
 Return
 
 ; Set menu activation key for each applicable program
-^F1::
+#c::
 	if WinActive("ahk_class Photoshop")
 		Menu, PhotoshopMenu, Show
 	if WinActive("ahk_class illustrator")
