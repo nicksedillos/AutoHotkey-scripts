@@ -1,13 +1,41 @@
+; IllustratorMenu
+	Menu, IllustratorMenu, Add, Paintbrush tool, BrushTool
+	Menu, IllustratorMenu, Add, Blob brush tool, BlobBrushTool
+	Menu, IllustratorMenu, Add, Eraser tool, EraserTool
+	Menu, IllustratorMenu, Add, Eyedropper tool, EyedropperTool
+	Menu, IllustratorMenu, Add, Swap fill/stroke, SwitchColors
+	Menu, IllustratorMenu, Add, Selection tool, SelectionTool
+	Menu, IllustratorMenu, Add, Direct selection tool, DirectSelectionTool
+	Menu, IllustratorMenu, Add, Hand tool, HandTool, +BarBreak
+	Menu, IllustratorMenu, Add, Zoom tool, ZoomTool
+	Menu, IllustratorMenu, Add, Zoom to 100`%, Zoom100
+	Menu, IllustratorMenu, Add, Reset view, ResetView
+; PhotoshopMenu
+	Menu, PhotoshopMenu, Add, Brush, BrushTool
+	Menu, PhotoshopMenu, Add, Eraser, EraserTool
+	Menu, PhotoshopMenu, Add, Spot healing brush, SpotHealingBrushTool
+	Menu, PhotoshopMenu, Add, Eyedropper, EyedropperTool
+	Menu, PhotoshopMenu, Add, Switch FG/BG colors, SwitchColors
+	Menu, PhotoshopMenu, Add, Fill, Fill
+	Menu, PhotoshopMenu, Add, Lasso, LassoTool
+	Menu, PhotoshopMenu, Add, Color panel, ColorPanel, +BarBreak
+	Menu, PhotoshopMenu, Add, Brush panel, BrushPanel
+	Menu, PhotoshopMenu, Add, Layers panel, LayersPanel
+	Menu, PhotoshopMenu, Add, Hand, HandTool, +BarBreak
+	Menu, PhotoshopMenu, Add, Zoom, ZoomTool
+	Menu, PhotoshopMenu, Add, Rotate view, RotateViewTool
+	Menu, PhotoshopMenu, Add, Zoom to 100`%, Zoom100
+	Menu, PhotoshopMenu, Add, Reset view, ResetView
 ; Shortcuts
 	; Panels
-		ColorPanel:
-			Send, F5
-		Return
 		BrushPanel:
-			Send, F6
+			Send, {F5}
+		Return
+		ColorPanel:
+			Send, {F6}
 		Return
 		LayersPanel:
-			Send, F7
+			Send, {F7}
 		Return
 	; Tools
 		BlobBrushTool:
@@ -30,6 +58,9 @@
 		Return
 		EyedropperTool:
 			Send, i
+		Return
+		Fill:
+			Send, +{F5}
 		Return
 		SwitchColors:
 			Send, x
@@ -55,33 +86,6 @@
 			Send, Esc
 			Send, ^0
 		Return
-; IllustratorMenu
-	Menu, IllustratorMenu, Add, Paintbrush tool, BrushTool
-	Menu, IllustratorMenu, Add, Blob brush tool, BlobBrushTool
-	Menu, IllustratorMenu, Add, Eraser tool, EraserTool
-	Menu, IllustratorMenu, Add, Eyedropper tool, EyedropperTool
-	Menu, IllustratorMenu, Add, Swap fill/stroke, SwitchColors
-	Menu, IllustratorMenu, Add, Selection tool, SelectionTool
-	Menu, IllustratorMenu, Add, Direct selection tool, DirectSelectionTool
-	Menu, IllustratorMenu, Add, Hand tool, HandTool, +BarBreak
-	Menu, IllustratorMenu, Add, Zoom tool, ZoomTool
-	Menu, IllustratorMenu, Add, Zoom to 100`%, Zoom100
-	Menu, IllustratorMenu, Add, Reset view, ResetView
-; PhotoshopMenu
-	Menu, PhotoshopMenu, Add, Brush tool, BrushTool
-	Menu, PhotoshopMenu, Add, Eraser tool, EraserTool
-	Menu, PhotoshopMenu, Add, Spot healing brush tool, SpotHealingBrushTool
-	Menu, PhotoshopMenu, Add, Eyedropper tool, EyedropperTool
-	Menu, PhotoshopMenu, Add, Switch FG/BG Colors, SwitchColors
-	Menu, PhotoshopMenu, Add, Lasso tool, LassoTool
-	Menu, PhotoshopMenu, Add, Color panel, ColorPanel, +BarBreak
-	Menu, PhotoshopMenu, Add, Brush panel, BrushPanel
-	Menu, PhotoshopMenu, Add, Layers panel, LayersPanel
-	Menu, PhotoshopMenu, Add, Hand tool, HandTool, +BarBreak
-	Menu, PhotoshopMenu, Add, Zoom tool, ZoomTool
-	Menu, PhotoshopMenu, Add, Rotate view tool, RotateViewTool
-	Menu, PhotoshopMenu, Add, Zoom to 100`%, Zoom100
-	Menu, PhotoshopMenu, Add, Reset view, ResetView
 ; Set menu activation key for each applicable program
 #c:: ; Cortana shortcut by default; must be manually disabled.
 	if WinActive("ahk_class Photoshop")
