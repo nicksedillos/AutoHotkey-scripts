@@ -21,6 +21,7 @@
 	Menu, PhotoshopMenu, Add, Color panel, ColorPanel, +BarBreak
 	Menu, PhotoshopMenu, Add, Brush panel, BrushPanel
 	Menu, PhotoshopMenu, Add, Layers panel, LayersPanel
+	Menu, PhotoshopMenu, Add, Layer style, LayerStyle
 	Menu, PhotoshopMenu, Add, Hand, HandTool, +BarBreak
 	Menu, PhotoshopMenu, Add, Zoom, ZoomTool
 	Menu, PhotoshopMenu, Add, Rotate view, RotateViewTool
@@ -76,6 +77,10 @@
 		Return
 		SelectionTool:
 			Send, v
+		Return
+	; Application menu
+		LayerStyle:
+			Send, !lyn
 		Return
 	; View
 		Zoom100:
