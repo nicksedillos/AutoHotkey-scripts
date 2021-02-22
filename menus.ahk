@@ -21,6 +21,8 @@
 	Menu, PhotoshopMenu, Add, Color panel, ColorPanel, +BarBreak
 	Menu, PhotoshopMenu, Add, Brush panel, BrushPanel
 	Menu, PhotoshopMenu, Add, Layers panel, LayersPanel
+	Menu, PhotoshopMenu, Add, New layer, NewLayer
+	Menu, PhotoshopMenu, Add, Lock/unlock layer, LockLayer
 	Menu, PhotoshopMenu, Add, Layer style, LayerStyle
 	Menu, PhotoshopMenu, Add, Hand, HandTool, +BarBreak
 	Menu, PhotoshopMenu, Add, Zoom, ZoomTool
@@ -79,6 +81,12 @@
 			Send, v
 		Return
 	; Application menu
+		NewLayer:
+			Send, ^+n
+		Return
+		LockLayer:
+			Send, ^/
+		Return
 		LayerStyle:
 			Send, !lyn
 		Return
