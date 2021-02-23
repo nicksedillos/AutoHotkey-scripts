@@ -11,24 +11,45 @@
 	Menu, IllustratorMenu, Add, Zoom to 100`%, Zoom100
 	Menu, IllustratorMenu, Add, Reset view, ResetView
 ; PhotoshopMenu
-	Menu, PhotoshopMenu, Add, Brush, BrushTool
-	Menu, PhotoshopMenu, Add, Eraser, EraserTool
-	Menu, PhotoshopMenu, Add, Spot healing brush, SpotHealingBrushTool
-	Menu, PhotoshopMenu, Add, Eyedropper, EyedropperTool
-	Menu, PhotoshopMenu, Add, Switch FG/BG colors, SwitchColors
+		; PhotoshopSubmenuSelection
+		Menu, PhotoshopSubmenuSelection, Add, Lasso, LassoTool
+		Menu, PhotoshopSubmenuSelection, Add, Select all, SelectAll
+		Menu, PhotoshopSubmenuSelection, Add, Select inverse, SelectInverse
+		Menu, PhotoshopSubmenuSelection, Add, Quick mask mode, QuickMaskMode
+		Menu, PhotoshopSubmenuSelection, Add, Deselect, Deselect
+		; PhotoshopSubmenuBrush
+		Menu, PhotoshopSubmenuBrush, Add, Brush panel, BrushPanel
+		Menu, PhotoshopSubmenuBrush, Add, Brush, BrushTool
+		Menu, PhotoshopSubmenuBrush, Add, Eraser, EraserTool
+		Menu, PhotoshopSubmenuBrush, Add, Spot healing brush, SpotHealingBrushTool
+		; PhotoshopSubmenuColor
+		Menu, PhotoshopSubmenuColor, Add, Color panel, ColorPanel
+		Menu, PhotoshopSubmenuColor, Add, Eyedropper, EyedropperTool
+		Menu, PhotoshopSubmenuColor, Add, Switch FG/BG colors, SwitchColors
+		Menu, PhotoshopSubmenuColor, Add, Default FG/BG colors, DefaultColors
+		; PhotoshopSubmenuLayer
+		Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
+		Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
+		Menu, PhotoshopSubmenuLayer, Add, New layer, NewLayer
+		Menu, PhotoshopSubmenuLayer, Add, Lock/unlock layer, LockLayer
+		Menu, PhotoshopSubmenuLayer, Add, Layer style, LayerStyle
+		; PhotoshopSubmenuView
+		Menu, PhotoshopSubmenuView, Add, Hand, HandTool
+		Menu, PhotoshopSubmenuView, Add, Zoom, ZoomTool
+		Menu, PhotoshopSubmenuView, Add, Rotate view, RotateViewTool
+		Menu, PhotoshopSubmenuView, Add, Zoom to 100`%, Zoom100
+		Menu, PhotoshopSubmenuView, Add, Reset view, ResetView
+		Menu, PhotoshopSubmenuView, Add, Toggle guides, ShowGuides
+		Menu, PhotoshopSubmenuView, Add, Toggle grid, ShowGrid
+		Menu, PhotoshopSubmenuView, Add, Toggle snap, Snap
+	Menu, PhotoshopMenu, Add, Selection, :PhotoshopSubmenuSelection
+	Menu, PhotoshopMenu, Add, Brush, :PhotoshopSubmenuBrush
+	Menu, PhotoshopMenu, Add, Color, :PhotoshopSubmenuColor
+	Menu, PhotoshopMenu, Add, Layer, :PhotoshopSubmenuLayer
+	Menu, PhotoshopMenu, Add, View, :PhotoshopSubmenuView
+	Menu, PhotoshopMenu, Add, Free transform, FreeTransform
+	Menu, PhotoshopMenu, Add, Crop, CropTool
 	Menu, PhotoshopMenu, Add, Fill, Fill
-	Menu, PhotoshopMenu, Add, Lasso, LassoTool
-	Menu, PhotoshopMenu, Add, Color panel, ColorPanel, +BarBreak
-	Menu, PhotoshopMenu, Add, Brush panel, BrushPanel
-	Menu, PhotoshopMenu, Add, Layers panel, LayersPanel
-	Menu, PhotoshopMenu, Add, New layer, NewLayer
-	Menu, PhotoshopMenu, Add, Lock/unlock layer, LockLayer
-	Menu, PhotoshopMenu, Add, Layer style, LayerStyle
-	Menu, PhotoshopMenu, Add, Hand, HandTool, +BarBreak
-	Menu, PhotoshopMenu, Add, Zoom, ZoomTool
-	Menu, PhotoshopMenu, Add, Rotate view, RotateViewTool
-	Menu, PhotoshopMenu, Add, Zoom to 100`%, Zoom100
-	Menu, PhotoshopMenu, Add, Reset view, ResetView
 ; Shortcuts
 	; Panels
 		BrushPanel:
@@ -47,14 +68,26 @@
 		BrushTool:
 			Send, b
 		Return
+		CropTool:
+			Send, c
+		Return
+		DefaultColors:
+			Send, d
+		Return
 		DirectSelectionTool:
 			Send, a
 		Return
 		EraserTool:
 			Send, e
 		Return
+		FreeTransform:
+			Send, ^t
+		Return
 		HandTool:
 			Send, h
+		Return
+		QuickMaskMode:
+			Send, q
 		Return
 		SpotHealingBrushTool:
 			Send, j
@@ -80,6 +113,15 @@
 		SelectionTool:
 			Send, v
 		Return
+		SelectAll:
+			Send, ^a
+		Return
+		SelectInverse:
+			Send, +^i
+		Return
+		Deselect:
+			Send, ^d
+		Return
 	; Application menu
 		NewLayer:
 			Send, ^+n
@@ -99,6 +141,14 @@
 			Send, Esc
 			Send, ^0
 		Return
+		ShowGuides:
+			Send, ^;
+		Return
+		ShowGrid:
+			Send, ^'
+		Return
+		Snap:
+			Send, +^;
 ; Set menu activation key for each applicable program
 #c:: ; Cortana shortcut by default; must be manually disabled.
 	if WinActive("ahk_class Photoshop")
