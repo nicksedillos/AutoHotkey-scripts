@@ -24,6 +24,7 @@
 		Menu, PhotoshopSubmenuBrush, Add, Spot healing brush, SpotHealingBrushTool
 		; PhotoshopSubmenuColor
 		Menu, PhotoshopSubmenuColor, Add, Color panel, ColorPanel
+		Menu, PhotoshopSubmenuColor, Add, Swatches, SwatchesPanel
 		Menu, PhotoshopSubmenuColor, Add, Eyedropper, EyedropperTool
 		Menu, PhotoshopSubmenuColor, Add, Switch FG/BG colors, SwitchColors
 		Menu, PhotoshopSubmenuColor, Add, Default FG/BG colors, DefaultColors
@@ -38,7 +39,7 @@
 		Menu, PhotoshopSubmenuView, Add, Zoom, ZoomTool
 		Menu, PhotoshopSubmenuView, Add, Rotate view, RotateViewTool
 		Menu, PhotoshopSubmenuView, Add, Zoom to 100`%, Zoom100
-		Menu, PhotoshopSubmenuView, Add, Reset view, ResetView
+		Menu, PhotoshopSubmenuView, Add, Zoom to fit, ResetView
 		Menu, PhotoshopSubmenuView, Add, Toggle guides, ShowGuides
 		Menu, PhotoshopSubmenuView, Add, Toggle grid, ShowGrid
 		Menu, PhotoshopSubmenuView, Add, Toggle snap, Snap
@@ -53,102 +54,103 @@
 ; Shortcuts
 	; Panels
 		BrushPanel:
-			Send, {F5}
+			SendInput, {F5}
 		Return
 		ColorPanel:
-			Send, {F6}
+			SendInput, {F6}
 		Return
 		LayersPanel:
-			Send, {F7}
+			SendInput, {F7}
+		Return
+		SwatchesPanel:
+			SendInput, !w{down 34}{Enter}
 		Return
 	; Tools
 		BlobBrushTool:
-			Send, +b
+			SendInput, +b
 		Return
 		BrushTool:
-			Send, b
+			SendInput, b
 		Return
 		CropTool:
-			Send, c
+			SendInput, c
 		Return
 		DefaultColors:
-			Send, d
+			SendInput, d
 		Return
 		DirectSelectionTool:
-			Send, a
+			SendInput, a
 		Return
 		EraserTool:
-			Send, e
+			SendInput, e
 		Return
 		FreeTransform:
-			Send, ^t
+			SendInput, ^t
 		Return
 		HandTool:
-			Send, h
+			SendInput, h
 		Return
 		QuickMaskMode:
-			Send, q
+			SendInput, q
 		Return
 		SpotHealingBrushTool:
-			Send, j
+			SendInput, j
 		Return
 		EyedropperTool:
-			Send, i
+			SendInput, i
 		Return
 		Fill:
-			Send, +{F5}
+			SendInput, +{F5}
 		Return
 		SwitchColors:
-			Send, x
+			SendInput, x
 		Return
 		LassoTool:
-			Send, l
+			SendInput, l
 		Return
 		ZoomTool:
-			Send, z
+			SendInput, z
 		Return
 		RotateViewTool:
-			Send, r
+			SendInput, r
 		Return
 		SelectionTool:
-			Send, v
+			SendInput, v
 		Return
 		SelectAll:
-			Send, ^a
+			SendInput, ^a
 		Return
 		SelectInverse:
-			Send, +^i
+			SendInput, +^i
 		Return
 		Deselect:
-			Send, ^d
+			SendInput, ^d
 		Return
 	; Application menu
 		NewLayer:
-			Send, ^+n
+			SendInput, ^+n
 		Return
 		LockLayer:
-			Send, ^/
+			SendInput, ^/
 		Return
 		LayerStyle:
-			Send, !lyn
+			SendInput, !lyn
 		Return
 	; View
 		Zoom100:
-			Send, ^!0
+			SendInput, ^!0
 		Return
 		ResetView:
-			Send, Esc
-			Send, Esc
-			Send, ^0
+			SendInput, {Esc}{Esc}^0
 		Return
 		ShowGuides:
-			Send, ^;
+			SendInput, ^;
 		Return
 		ShowGrid:
-			Send, ^'
+			SendInput, ^'
 		Return
 		Snap:
-			Send, +^;
+			SendInput, +^;
 ; Set menu activation key for each applicable program
 #c:: ; Cortana shortcut by default; must be manually disabled.
 	if WinActive("ahk_class Photoshop")
