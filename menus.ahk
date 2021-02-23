@@ -12,45 +12,52 @@
 	Menu, IllustratorMenu, Add, Reset view, ResetView
 ; PhotoshopMenu
 		; PhotoshopSubmenuSelection
-		Menu, PhotoshopSubmenuSelection, Add, Lasso, LassoTool
-		Menu, PhotoshopSubmenuSelection, Add, Select all, SelectAll
-		Menu, PhotoshopSubmenuSelection, Add, Select inverse, SelectInverse
-		Menu, PhotoshopSubmenuSelection, Add, Quick mask mode, QuickMaskMode
-		Menu, PhotoshopSubmenuSelection, Add, Deselect, Deselect
+			Menu, PhotoshopSubmenuSelection, Add, Lasso, LassoTool
+			Menu, PhotoshopSubmenuSelection, Add, Rectangular marquee, RectangularMarqueeTool
+			Menu, PhotoshopSubmenuSelection, Add, Select all, SelectAll
+			Menu, PhotoshopSubmenuSelection, Add, Select inverse, SelectInverse
+			Menu, PhotoshopSubmenuSelection, Add, Transform selection, TransformSelection
+			Menu, PhotoshopSubmenuSelection, Add, Quick mask mode, QuickMaskMode
+			Menu, PhotoshopSubmenuSelection, Add, Save selection, SaveSelection
+			Menu, PhotoshopSubmenuSelection, Add, Load selection, LoadSelection
+			Menu, PhotoshopSubmenuSelection, Add, Deselect, Deselect
+			Menu, PhotoshopSubmenuSelection, Add, Reselect, Reselect
 		; PhotoshopSubmenuBrush
-		Menu, PhotoshopSubmenuBrush, Add, Brush panel, BrushPanel
-		Menu, PhotoshopSubmenuBrush, Add, Brush, BrushTool
-		Menu, PhotoshopSubmenuBrush, Add, Eraser, EraserTool
-		Menu, PhotoshopSubmenuBrush, Add, Spot healing brush, SpotHealingBrushTool
+			Menu, PhotoshopSubmenuBrush, Add, Brush panel, BrushPanel
+			Menu, PhotoshopSubmenuBrush, Add, Brush, BrushTool
+			Menu, PhotoshopSubmenuBrush, Add, Eraser, EraserTool
+			Menu, PhotoshopSubmenuBrush, Add, Spot healing brush, SpotHealingBrushTool
 		; PhotoshopSubmenuColor
-		Menu, PhotoshopSubmenuColor, Add, Color panel, ColorPanel
-		Menu, PhotoshopSubmenuColor, Add, Swatches, SwatchesPanel
-		Menu, PhotoshopSubmenuColor, Add, Eyedropper, EyedropperTool
-		Menu, PhotoshopSubmenuColor, Add, Switch FG/BG colors, SwitchColors
-		Menu, PhotoshopSubmenuColor, Add, Default FG/BG colors, DefaultColors
+			Menu, PhotoshopSubmenuColor, Add, Color panel, ColorPanel
+			Menu, PhotoshopSubmenuColor, Add, Swatches, SwatchesPanel
+			Menu, PhotoshopSubmenuColor, Add, Eyedropper, EyedropperTool
+			Menu, PhotoshopSubmenuColor, Add, Switch FG/BG colors, SwitchColors
+			Menu, PhotoshopSubmenuColor, Add, Default FG/BG colors, DefaultColors
+		; PhotoshopSubmenuEdit
+			Menu, PhotoshopSubmenuEdit, Add, Free transform, FreeTransform
+			Menu, PhotoshopSubmenuEdit, Add, Crop, CropTool
+			Menu, PhotoshopSubmenuEdit, Add, Fill, Fill
 		; PhotoshopSubmenuLayer
-		Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
-		Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
-		Menu, PhotoshopSubmenuLayer, Add, New layer, NewLayer
-		Menu, PhotoshopSubmenuLayer, Add, Lock/unlock layer, LockLayer
-		Menu, PhotoshopSubmenuLayer, Add, Layer style, LayerStyle
+			Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
+			Menu, PhotoshopSubmenuLayer, Add, Layers panel, LayersPanel
+			Menu, PhotoshopSubmenuLayer, Add, New layer, NewLayer
+			Menu, PhotoshopSubmenuLayer, Add, Lock/unlock layer, LockLayer
+			Menu, PhotoshopSubmenuLayer, Add, Layer style, LayerStyle
 		; PhotoshopSubmenuView
-		Menu, PhotoshopSubmenuView, Add, Hand, HandTool
-		Menu, PhotoshopSubmenuView, Add, Zoom, ZoomTool
-		Menu, PhotoshopSubmenuView, Add, Rotate view, RotateViewTool
-		Menu, PhotoshopSubmenuView, Add, Zoom to 100`%, Zoom100
-		Menu, PhotoshopSubmenuView, Add, Zoom to fit, ResetView
-		Menu, PhotoshopSubmenuView, Add, Toggle guides, ShowGuides
-		Menu, PhotoshopSubmenuView, Add, Toggle grid, ShowGrid
-		Menu, PhotoshopSubmenuView, Add, Toggle snap, Snap
+			Menu, PhotoshopSubmenuView, Add, Hand, HandTool
+			Menu, PhotoshopSubmenuView, Add, Zoom, ZoomTool
+			Menu, PhotoshopSubmenuView, Add, Rotate view, RotateViewTool
+			Menu, PhotoshopSubmenuView, Add, Zoom to 100`%, Zoom100
+			Menu, PhotoshopSubmenuView, Add, Zoom to fit and reset rotation, ResetView
+			Menu, PhotoshopSubmenuView, Add, Toggle guides, ShowGuides
+			Menu, PhotoshopSubmenuView, Add, Lock/unlock guides, LockGuides
+			Menu, PhotoshopSubmenuView, Add, Toggle grid, ShowGrid
+			Menu, PhotoshopSubmenuView, Add, Toggle snap, Snap
 	Menu, PhotoshopMenu, Add, Selection, :PhotoshopSubmenuSelection
 	Menu, PhotoshopMenu, Add, Brush, :PhotoshopSubmenuBrush
 	Menu, PhotoshopMenu, Add, Color, :PhotoshopSubmenuColor
 	Menu, PhotoshopMenu, Add, Layer, :PhotoshopSubmenuLayer
 	Menu, PhotoshopMenu, Add, View, :PhotoshopSubmenuView
-	Menu, PhotoshopMenu, Add, Free transform, FreeTransform
-	Menu, PhotoshopMenu, Add, Crop, CropTool
-	Menu, PhotoshopMenu, Add, Fill, Fill
 ; Shortcuts
 	; Panels
 		BrushPanel:
@@ -66,6 +73,9 @@
 			SendInput, !w{down 34}{Enter}
 		Return
 	; Tools
+		RectangularMarqueeTool:
+			SendInput, m
+		Return
 		BlobBrushTool:
 			SendInput, +b
 		Return
@@ -99,9 +109,6 @@
 		EyedropperTool:
 			SendInput, i
 		Return
-		Fill:
-			SendInput, +{F5}
-		Return
 		SwitchColors:
 			SendInput, x
 		Return
@@ -117,40 +124,67 @@
 		SelectionTool:
 			SendInput, v
 		Return
-		SelectAll:
-			SendInput, ^a
-		Return
-		SelectInverse:
-			SendInput, +^i
-		Return
-		Deselect:
-			SendInput, ^d
-		Return
 	; Application menu
-		NewLayer:
-			SendInput, ^+n
-		Return
-		LockLayer:
-			SendInput, ^/
-		Return
-		LayerStyle:
-			SendInput, !lyn
-		Return
-	; View
-		Zoom100:
-			SendInput, ^!0
-		Return
-		ResetView:
-			SendInput, {Esc}{Esc}^0
-		Return
-		ShowGuides:
-			SendInput, ^;
-		Return
-		ShowGrid:
-			SendInput, ^'
-		Return
-		Snap:
-			SendInput, +^;
+		; Edit
+			Copy:
+				SendInput, ^c
+			Return
+			Paste:
+				SendInput, ^v
+			Return
+			Fill:
+				SendInput, +{F5}
+			Return
+		; Layer
+			NewLayer:
+				SendInput, ^+n
+			Return
+			LockLayer:
+				SendInput, ^/
+			Return
+			LayerStyle:
+				SendInput, !lyn
+			Return
+		; Select
+			SelectAll:
+				SendInput, ^a
+			Return
+			Deselect:
+				SendInput, ^d
+			Return
+			Reselect:
+				SendInput, +^d
+			Return
+			SelectInverse:
+				SendInput, +^i
+			Return
+			TransformSelection:
+				SendInput, !st
+			Return
+			SaveSelection:
+				SendInput, !sv
+			Return
+			LoadSelection:
+				SendInput, !so
+			Return
+		; View
+			Zoom100:
+				SendInput, ^!0
+			Return
+			ResetView:
+				SendInput, {Esc}{Esc}^0
+			Return
+			ShowGuides:
+				SendInput, ^;
+			Return
+			LockGuides:
+				SendInput, !^;
+			Return
+			ShowGrid:
+				SendInput, ^'
+			Return
+			Snap:
+				SendInput, +^;
 ; Set menu activation key for each applicable program
 #c:: ; Cortana shortcut by default; must be manually disabled.
 	if WinActive("ahk_class Photoshop")

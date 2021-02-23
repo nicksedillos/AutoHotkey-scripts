@@ -1,6 +1,6 @@
-; Change Launch Media key to run Google Play Music mini-player.
+; Change Launch Media key to run YouTube Music progressive web app.
 Launch_Media::
-Run, "C:\Program Files (x86)\Google\Chrome Beta\Application\chrome_proxy.exe"  --profile-directory=Default --app-id=fahmaaghhglfmonjliepjlchgpgfmobi
+Run, "C:\Program Files\Google\Chrome Beta\Application\chrome_proxy.exe" --profile-directory=Default --app-id=cinhimbnkkaeohfgghhklpknlkffjgod --disable-audio-output-resampler --force-wave-audio --try-supported-channel-layouts
 Return
 
 ; Change Email key to open Gmail in default browser.
