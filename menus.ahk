@@ -187,8 +187,8 @@
 				SendInput, +^;
 ; Set menu activation key for each applicable program
 #c:: ; Cortana shortcut by default; must be manually disabled.
-	if WinActive("ahk_class Photoshop")
+	if WinActive("ahk_exe Photoshop.exe")
 		Menu, PhotoshopMenu, Show
-	if WinActive("ahk_class illustrator")
+	if WinActive("ahk_exe illustrator.exe")
 		Menu, IllustratorMenu, Show
 Return
